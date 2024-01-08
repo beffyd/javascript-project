@@ -29,17 +29,17 @@ function updateDisplay() {
 function makeGuess() {
     const guessInput = document.getElementById('guess-input');
     const guess = guessInput.value.toLowerCase();
-
+    /* if character not a-z */
     if (!guess.match(/[a-z]/)) {
         alert("Please enter a valid letter.");
         return;
     }
-
+    /* if more than 1 letter */
     if (guess.length !== 1) {
         alert("You can guess only 1 letter at a time.");
         return;
     }
-
+    /* if character already guessed */
     if (guessedLetters.includes(guess)) {
         alert("You've already guessed that letter.");
         return;
@@ -47,12 +47,15 @@ function makeGuess() {
 
     guessedLetters.push(guess);
 
-    if (secretWord.includes(guess)) {
-        /* Update displayed word with correctly guessed letter(s) */
+    /* Check if guessed letter is in secret word */
+if (secretWord.includes(guess)) {
+        /* Iterate through secret word, update displayed word with correctly guessed letter*/
         for (let i = 0; i < secretWord.length; i++) {
             if (secretWord[i] === guess) {
                 displayedWord[i] = guess;
             }
+        /* if a character from the secret word has strict equality with the guess, then show guess on displayed word ^ */
+
         }
     } else {
         /* Incorrect guess, hide & display hangman images*/
@@ -136,7 +139,7 @@ function makeGuess() {
             "inline";
     }
 
-    /* Check if the game is won or lost */
+    /* Check if the game is won or lost (compare displayed word & secret word) */
     if (displayedWord.join('') === secretWord) {
         alert("Congratulations! You've won!");
         resetGame();
