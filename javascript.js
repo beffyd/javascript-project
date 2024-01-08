@@ -1,17 +1,17 @@
 /* Word to guess */
 const secretWord = "javascript";
 
-/* Displayed word */
+/* Displayed word (unguessed) */
 let displayedWord = Array(secretWord.length).fill('_');
 
-/* Guessed letters */
+/* Guessed letters (empty list) */
 let guessedLetters = [];
 
-/* Remaining guesses */
+/* Amount of remaining guesses */
 
 let remainingGuesses = 10;
 
-/* Elements */
+/* Constant elements */
 const wordDisplay = document.getElementById('word-display');
 const guessedLettersList = document.getElementById('guessed-letters-list');
 const remainingGuessesSpan = document.getElementById('remaining-guesses');
@@ -48,14 +48,14 @@ function makeGuess() {
     guessedLetters.push(guess);
 
     if (secretWord.includes(guess)) {
-        /* Update displayed word with correctly guessed letters */
+        /* Update displayed word with correctly guessed letter(s) */
         for (let i = 0; i < secretWord.length; i++) {
             if (secretWord[i] === guess) {
                 displayedWord[i] = guess;
             }
         }
     } else {
-        /* Incorrect guess */
+        /* Incorrect guess, hide & display hangman images*/
         remainingGuesses--;
         if (remainingGuesses == 9) {
             document.getElementById("h01").style.display =
