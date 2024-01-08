@@ -42,9 +42,14 @@ fieldset {
 
 button {
     height: 5rem;
+    padding-top: 5px;
 }
 
 i {
     font-size: 4rem;
     color: orangered;
+}
+
+img {
+    display: none;
 }

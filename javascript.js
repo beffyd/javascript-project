@@ -1,22 +1,24 @@
-// Word to guess
+/* Word to guess */
 const secretWord = "javascript";
 
-// Displayed word
+/* Displayed word */
 let displayedWord = Array(secretWord.length).fill('_');
 
-// Guessed letters
+/* Guessed letters */
 let guessedLetters = [];
 
-// Remaining guesses
+/* Remaining guesses */
+
 let remainingGuesses = 10;
 
-// Elements
+/* Elements */
 const wordDisplay = document.getElementById('word-display');
 const guessedLettersList = document.getElementById('guessed-letters-list');
 const remainingGuessesSpan = document.getElementById('remaining-guesses');
 
-// Initialize the display
+/* Initialize the display */
 updateDisplay();
+
 
 function updateDisplay() {
     wordDisplay.textContent = displayedWord.join(' ');
@@ -34,7 +36,7 @@ function makeGuess() {
     }
 
     if (guess.length !== 1) {
-        alert("Please guess only one letter at a time.");
+        alert("You can guess only 1 letter at a time.");
         return;
     }
 
@@ -46,18 +48,95 @@ function makeGuess() {
     guessedLetters.push(guess);
 
     if (secretWord.includes(guess)) {
-        // Update displayed word with correctly guessed letters
+        /* Update displayed word with correctly guessed letters */
         for (let i = 0; i < secretWord.length; i++) {
             if (secretWord[i] === guess) {
                 displayedWord[i] = guess;
             }
         }
     } else {
-        // Incorrect guess
+        /* Incorrect guess */
         remainingGuesses--;
+        if (remainingGuesses == 9) {
+            document.getElementById("h01").style.display =
+                "inline";
+        }
+
+        if (remainingGuesses == 8) {
+            document.getElementById("h01").style.display =
+                "none";
+
+            document.getElementById("h02").style.display =
+                "inline";
+        }
     }
 
-    // Check if the game is won or lost
+    if (remainingGuesses == 7) {
+        document.getElementById("h02").style.display =
+            "none";
+
+        document.getElementById("h03").style.display =
+            "inline";
+
+    }
+
+    if (remainingGuesses == 6) {
+        document.getElementById("h03").style.display =
+            "none";
+
+        document.getElementById("h04").style.display =
+            "inline";
+    }
+
+    if (remainingGuesses == 5) {
+        document.getElementById("h04").style.display =
+            "none";
+
+        document.getElementById("h05").style.display =
+            "inline";
+    }
+
+    if (remainingGuesses == 4) {
+        document.getElementById("h05").style.display =
+            "none";
+
+        document.getElementById("h06").style.display =
+            "inline";
+    }
+
+    if (remainingGuesses == 3) {
+        document.getElementById("h05").style.display =
+            "none";
+
+        document.getElementById("h06").style.display =
+            "inline";
+    }
+
+    if (remainingGuesses == 2) {
+        document.getElementById("h06").style.display =
+            "none";
+
+        document.getElementById("h07").style.display =
+            "inline";
+    }
+
+    if (remainingGuesses == 1) {
+        document.getElementById("h07").style.display =
+            "none";
+
+        document.getElementById("h08").style.display =
+            "inline";
+    }
+
+    if (remainingGuesses == 1) {
+        document.getElementById("h08").style.display =
+            "none";
+
+        document.getElementById("h09").style.display =
+            "inline";
+    }
+
+    /* Check if the game is won or lost */
     if (displayedWord.join('') === secretWord) {
         alert("Congratulations! You've won!");
         resetGame();
@@ -66,12 +145,14 @@ function makeGuess() {
         resetGame();
     }
 
-    // Update the display
+    /* Update the display */
     updateDisplay();
 
-    // Clear the input field
+    /* Clear the input field */
     guessInput.value = '';
 }
+
+/* Reset the game */
 
 function resetGame() {
     displayedWord = Array(secretWord.length).fill('_');
