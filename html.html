@@ -1,53 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
     </style>
-    <script src="https://kit.fontawesome.com/44d4d71b76.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/44d4d71b76.js"
+      crossorigin="anonymous"></script>
 
     <title>Beffys Hangman</title>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="game">
-        <h1>Beffy's Hangman Game</h1>
-        <p id="guesses-left">Guesses remaining: <span id="remaining-guesses"></span></p>
-        <div id="word-display"></div>
-        <p id="guessed-letters">Guessed Letters: <span id="guessed-letters-list"></span></p>
-        <fieldset>
-            <input type="text" id="guess-input" placeholder="Enter a letter">
-            <button onclick="makeGuess()"><i class="fa-solid fa-question"></i></button>
-        </fieldset>
+      <h1>Beffy's Hangman Game</h1>
+      <p id="guesses-left">
+        Guesses remaining: <span id="remaining-guesses"></span>
+      </p>
+      <div id="word-display"></div>
+      <p id="guessed-letters">
+        Guessed Letters: <span id="guessed-letters-list"></span>
+      </p>
+      <fieldset>
+        <input type="text" id="guess-input" placeholder="Enter a letter" />
+        <button onclick="makeGuess()">
+          <i class="fa-solid fa-question"></i>
+        </button>
+      </fieldset>
 
-        <!--HANGMAN IMAGES-->
-        <img src="assets/imgs/01.png" id="h01">
-
-        <img src="assets/imgs/02.png" id="h02">
-
-        <img src="assets/imgs/03.png" id="h03">
-
-        <img src="assets/imgs/04.png" id="h04">
-
-        <img src="assets/imgs/05.png" id="h05">
-
-        <img src="assets/imgs/06.png" id="h06">
-
-        <img src="assets/imgs/07.png" id="h07">
-
-        <img src="assets/imgs/08.png" id="h08">
-
-        <img src="assets/imgs/09.png" id="h09">
-
-        <img src="assets/imgs/10.png" id="h10">
-
+      <img id="hangedMan" src="assets/imgs/01.png" />
     </div>
     <script src="javascript.js"></script>
-</body>
-
+  </body>
 </html>

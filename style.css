@@ -6,7 +6,7 @@ body {
 
 #game {
     font: 1em sans-serif;
-    font-family: 'Bungee Spice', sans-serif;
+    font-family: "Bungee Spice", sans-serif;
     text-align: center;
 }
 
@@ -50,6 +50,9 @@ i {
     color: orangered;
 }
 
-img {
-    display: none;
-}
+/* -- komal 
+  img {
+      display: none;
+  }
+  
+  --- */
