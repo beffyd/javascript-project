@@ -52,9 +52,13 @@ const wordDisplay = document.getElementById("word-display");
 const guessedLettersList = document.getElementById("guessed-letters-list");
 const remainingGuessesSpan = document.getElementById("remaining-guesses");
 
+/* Update display */
 function updateDisplay() {
+  /*puts displayed word in word-display div */
   wordDisplay.textContent = displayedWord.join(" ");
+  /* puts guessed letters in guessed-letters-list div */
   guessedLettersList.textContent = guessedLetters.join(", ");
+  /* puts remaining guesses in guesses-left span */
   remainingGuessesSpan.textContent = remainingGuesses;
 }
 

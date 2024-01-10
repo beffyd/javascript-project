@@ -21,6 +21,7 @@ body {
 
 h1 {
     font-size: 5rem;
+    padding-top: 10rem;
 }
 
 /* guessing */
@@ -55,20 +56,21 @@ fieldset {
 i {
     font-size: 3rem;
     color: orangered;
-
 }
+
 
 
 img {
     border-radius: 5%;
 }
 
-/* landing page */
+/* index page */
 
 #welcome {
     font-size: 2rem;
     font-family: 'Rubik', sans-serif;
     width: 35rem;
+    padding: 2rem;
 
 }
 
