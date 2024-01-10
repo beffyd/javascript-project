@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
+  </style>
+  <script src="https://kit.fontawesome.com/44d4d71b76.js" crossorigin="anonymous"></script>
+
+  <title>Beffys Hangman</title>
+</head>
+
+<body>
+  <div id="game">
+    <h1>Beffy's Hangman Game</h1>
+    <p id="guesses-left">
+      Guesses remaining: <span id="remaining-guesses"></span>
+    </p>
+    <div id="word-display"></div>
+    <p id="guessed-letters">
+      Guessed Letters: <span id="guessed-letters-list"></span>
+    </p>
+    <div id="guess-box">
+
+      <fieldset><input type="text" id="guess-input" placeholder="Enter a letter"> <button onclick="makeGuess()">
+          <i class="fa-solid fa-question"></i></fieldset>
+      </button>
+    </div>
+
+    <img id="hangedMan" src="assets/imgs/01.png" />
+  </div>
+  <script src="javascript.js"></script>
+</body>
+
+</html>
