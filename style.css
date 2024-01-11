@@ -5,8 +5,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90vh;
     margin: 0;
+    overflow-x: hidden;
 }
 
 #game {
@@ -28,9 +29,7 @@ h1 {
 #guess-box {
     margin: auto;
     padding-bottom: 4rem;
-
 }
-
 
 #guesses-left {
     font-size: 3rem;
@@ -52,13 +51,10 @@ fieldset {
 
 /* button style */
 
-
 i {
     font-size: 3rem;
-    color: orangered;
+    color: #ff4500;
 }
-
-
 
 img {
     border-radius: 5%;
@@ -69,13 +65,21 @@ img {
 #welcome {
     font-size: 2rem;
     font-family: 'Rubik', sans-serif;
-    width: 35rem;
+    width: 40rem;
     padding: 2rem;
-
 }
 
 a {
     font-family: "Bungee Spice", sans-serif;
     text-decoration: none;
     font-size: 4rem;
+}
+
+#welcome-text {
+    font-family: "Bungee Spice", sans-serif;
+    font-size: 4rem;
+}
+
+p {
+    color: white;
 }
