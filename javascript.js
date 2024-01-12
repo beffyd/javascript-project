@@ -1,9 +1,17 @@
-/* Word to guess */
+/* 
+  Game of Hangman.
+  Devloper  : Beth 
+  Date      : January 2024
 
-// -- Komal ------------- start --
+  Purpose   : This is .....
 
-/* Set the directory path to images' folder  */
-const imagePath = "assets/imgs/";
+* / 
+
+
+
+/* Define and initialise variables */
+const imagePath =
+  "assets/imgs/"; /* Set the directory path to images' folder   */
 
 /* array of image names  */
 let hangManImages = [
@@ -20,7 +28,7 @@ let hangManImages = [
   "11.png",
 ];
 
-/* array of game words */
+/* array of game words for playing Hangman */
 let secretWords = [
   "apple",
   "banana",
@@ -32,25 +40,38 @@ let secretWords = [
   "beffy",
 ];
 
-/* Use Math.random to fetch a random secretWord for game play */
-index = Math.floor(Math.random() * secretWords.length);
-let secretWord = secretWords[index];
-
-// -- komal ----------- end ---- >
-
-/* Displayed word (unguessed) */
-let displayedWord = Array(secretWord.length).fill("_");
-
-/* Guessed letters (empty list) */
+/*   Define global vars and consts  */
 let guessedLetters = [];
-
-/* Amount of remaining guesses */
 let remainingGuesses = 10;
+let secretWord = "";
 
 /* Constant elements */
 const wordDisplay = document.getElementById("word-display");
 const guessedLettersList = document.getElementById("guessed-letters-list");
 const remainingGuessesSpan = document.getElementById("remaining-guesses");
+let guessInput = document.getElementById("guess-input");
+let messagesOut = document.getElementById("messages-out");
+let messages;
+
+function startGame() {
+  /* Use Math.random to pick a random secretWord from the lsit of words */
+  index = Math.floor(Math.random() * secretWords.length);
+  secretWord = secretWords[index];
+
+  /* display the ungessed word with dashes and display it */
+  displayedWord = Array(secretWord.length).fill("_");
+
+  /* Guessed letters (empty list) */
+  guessedLetters = [];
+
+  /* Amount of remaining guesses */
+  remainingGuesses = 10;
+
+  /* reset to initial hangman images */
+  document.getElementById("hangedMan").src = imagePath + hangManImages[0];
+  document.getElementById("guess-box").style.visibility = "visible";
+  updateDisplay();
+}
 
 /* Update display */
 function updateDisplay() {
@@ -60,58 +81,79 @@ function updateDisplay() {
   guessedLettersList.textContent = guessedLetters.join(", ");
   /* puts remaining guesses in guesses-left span */
   remainingGuessesSpan.textContent = remainingGuesses;
+  /* clear input field */
+
+  messagesOut.textContent = messages;
 }
 
-function makeGuess() {
-  const guessInput = document.getElementById("guess-input");
-  const guess = guessInput.value.toLowerCase();
+function validateInput(guess) {
+  messages = "";
+
   /* if character not a-z */
   if (!guess.match(/[a-z]/)) {
-    alert("Please enter a valid letter.");
-    return;
-  }
-  /* if more than 1 letter */
-  if (guess.length !== 1) {
-    alert("You can guess only 1 letter at a time.");
-    return;
-  }
-  /* if character already guessed */
-  if (guessedLetters.includes(guess)) {
-    alert("You've already guessed that letter.");
-    return;
-  }
-
-  guessedLetters.push(guess);
-
-  /* Check if guessed letter is in secret word */
-  if (secretWord.includes(guess)) {
-    /* Iterate through secret word, update displayed word with correctly guessed letter*/
-    for (let i = 0; i < secretWord.length; i++) {
-      if (secretWord[i] === guess) {
-        displayedWord[i] = guess;
-      }
-    }
-    /* if a character from the secret word has strict equality with the guess, then show guess on displayed word ^ */
+    //     alert("Please enter a valid letter.");
+    messages = "Please enter a valid letter.";
+    return false;
+  } else if (guess.length !== 1) {
+    /* if more than 1 letter */
+    //     alert("You can guess only 1 letter at a time.");
+    messages = "You can guess only 1 letter at a time.";
+    return false;
+  } else if (guessedLetters.includes(guess)) {
+    /* if character already guessed */
+    // kk    alert("You've already guessed that letter.");
+    messages = "You've already guessed that";
+    return false;
   } else {
-    /* Incorrect guess, hide & display hangman images*/
-    remainingGuesses--;
+    messages = "";
+    guessInput.textContent = "";
+    return true;
   }
+}
 
-  // <-- Komal ----------------------------------------------------- start ---->
+/* this function gets called when user submits their letter guessed */
+function makeGuess() {
+  let gameOver = false;
 
-  /* set the image src name using number of incorrect guessess already made */
-  let imageName = imagePath + hangManImages[10 - remainingGuesses];
-  document.getElementById("hangedMan").src = imageName;
+  var guess = document.getElementById("guess-input").value.toLowerCase();
 
-  // -- komal -------------------------------------------------------- end ----- >
+  let validInput = validateInput(guess); // true or false
 
-  /* Check if the game is won or lost (compare displayed word & secret word) */
-  if (displayedWord.join("") === secretWord) {
-    alert("Congratulations! You've won!");
-    resetGame();
-  } else if (remainingGuesses === 0) {
-    alert("Sorry, you've run out of guesses. The word was: " + secretWord);
-    resetGame();
+  console.log("validInput", validInput); //kk
+
+  if (validInput) {
+    messages = "";
+    /* add user's letter to list of guessed letters */
+    guessedLetters.push(guess);
+
+    /* Check if guessed letter is in secret word */
+    if (secretWord.includes(guess)) {
+      messages = "✅";
+      /* Iterate through secret word, update displayed word with correctly guessed letter*/
+      for (let i = 0; i < secretWord.length; i++) {
+        if (secretWord[i] === guess) {
+          displayedWord[i] = guess;
+        }
+      }
+    } else {
+      /* Incorrect guess */
+      remainingGuesses--;
+      messages = "❌";
+      /* display the next hangman image */
+      let imageName = imagePath + hangManImages[10 - remainingGuesses];
+      document.getElementById("hangedMan").src = imageName;
+    }
+
+    /* Check if the game is won or lost (compare displayed word & secret word) */
+    if (displayedWord.join("") === secretWord) {
+      //    alert("Congratulations! You've won!");
+      messages = "You Won! 👑 ";
+      gameOver = true;
+    } else if (remainingGuesses === 0) {
+      // alert("Sorry, you've run out of guesses. The word was: " + secretWord);
+      messages = "Sorry , you lost ";
+      gameOver = true;
+    }
   }
 
   /* Update the display */
@@ -119,18 +161,13 @@ function makeGuess() {
 
   /* Clear the input field */
   guessInput.value = "";
+
+  if (gameOver) {
+    messages = "";
+    document.getElementById("guess-box").style.visibility = "hidden";
+    document.getElementById("newGame").style.visibility = "visible";
+  }
 }
 
-/* Reset the game */
-function resetGame() {
-  displayedWord = Array(secretWord.length).fill("_");
-  guessedLetters = [];
-  remainingGuesses = 10;
-  updateDisplay();
-  // -- Komal ----- start ---- set initial image to default
-  document.getElementById("hangedMan").src = imagePath + hangManImages[0];
-  // -- Komal -- end
-}
-
-/* Initialize the display */
-updateDisplay();
+/* Start the Game here  */
+startGame();

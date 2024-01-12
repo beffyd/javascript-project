@@ -23,20 +23,34 @@ body {
 h1 {
     font-size: 5rem;
     padding-top: 10rem;
+    margin: 0;
+}
+
+/* Button on HOME page to play first game */
+#play-game {
+    font-family: "Bungee Spice", sans-serif;
+    font-size: 3rem;
+    width: 30rem;
 }
 
 /* guessing */
 #guess-box {
     margin: auto;
-    padding-bottom: 4rem;
+    padding-bottom: 0.5rem;
+
 }
 
 #guesses-left {
     font-size: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin: 0;
 }
 
 #guessed-letters {
     font-size: 3rem;
+    margin: auto;
+    padding: 1rem;
 }
 
 #guess-input {
@@ -64,7 +78,7 @@ img {
 
 #welcome {
     font-size: 2rem;
-    font-family: 'Rubik', sans-serif;
+    font-family: "Rubik", sans-serif;
     width: 40rem;
     padding: 2rem;
 }
@@ -82,4 +96,27 @@ a {
 
 p {
     color: white;
+}
+
+ul {
+    color: white;
+}
+
+/* Informational messages during game play */
+#messages-out {
+    font-family: "Bungee Spice", sans-serif;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+
+/* Button to start new game. Displayed only after winning / losing */
+#newGame {
+    font-size: 2rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: #393cff;
+    border-style: solid;
+    border-color: #f2a700;
+    border-radius: 50%;
+
 }

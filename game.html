@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+<!--  Game of Hangman -->
 
 <head>
   <meta charset="UTF-8" />
@@ -14,23 +16,48 @@
 </head>
 
 <body>
+  <!--  Main Div container for entire page  -->
   <div id="game">
     <h1>Beffy's Hangman Game</h1>
+
+    <!--  display the number of remaining guesses  -->
     <p id="guesses-left">
       Guesses remaining: <span id="remaining-guesses"></span>
     </p>
-    <img id="hangedMan" src="assets/imgs/01.png">
+
+    <!--  Displays the hang man image during game play   -->
+    <img id="hangedMan" src="assets/imgs/01.png" />
+
+    <!--  Displays the word to be guessed  -->
     <div id="word-display"></div>
+
+    <!--  Display the list of letters already guessed  -->
     <p id="guessed-letters">
       Guessed Letters: <span id="guessed-letters-list"></span>
     </p>
-    <div id="guess-box">
 
-      <fieldset><input type="text" id="guess-input" placeholder="Enter a letter"> <button onclick="makeGuess()">
-          <i class="fa-solid fa-question"></i></fieldset>
-      </button>
+    <!--  Guessed Letter Input Area   -->
+    <div id="guess-box">
+      <fieldset>
+        <input type="text" id="guess-input" placeholder="Enter a letter" />
+        <button onclick="makeGuess()">
+          <i class="fa-solid fa-question"></i>
+        </button>
+      </fieldset>
     </div>
+
+
+    <!--  messages to user during game play    -->
+    <div id="messages-out"></div>
+
+    <!--  button to start a new game   -->
+    <div>
+      <button id="newGame" onclick="startGame()"><i class="fa-solid fa-rotate-right"></i></button>
+    </div>
+
   </div>
+
+  <!--  define JavaScript for initial load    -->
   <script src="javascript.js"></script>
 </body>
 

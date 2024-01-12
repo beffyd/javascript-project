@@ -221,9 +221,9 @@ Each device tested the site using:
 
  | Feature | Expected Outcome | Testing Performed | Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-Play game button | Take you to game page | Mouse click on button | Pass |
-Guess a letter correctly| Guessed letter goes on displayed word | Character written in input, button pressed | Pass |
-Guess a letter incorrectly | Guessed letter is added to guessed letters list | Character written in input, button pressed | Pass |
+Play game button | Take you to game page | Mouse click on button | Opens game page |Pass |
+Guess a letter correctly| Guessed letter goes on displayed word, tick displayed | Character written in input, button pressed | Letter added to displayed word, tick displayed|Pass |
+Guess a letter incorrectly | Guessed letter is added to guessed letters list, X displayed | Character written in input, button pressed |Letter added to guessed letters, X displayed|Pass|
 
 
 
