@@ -19,9 +19,6 @@ Beffys Hangman is designed to be a fun game to play as a single play or to guess
 
 * [Features](#features)
   * [General Features on Each Page](#general-features)
-  * [Index Page](#the-home-page-index-page)
-  * [Weddings Page](#weddings-page)
-
   * [Accessibility](#accessibility)
 
 * [Technologies Used](#technologies-used)

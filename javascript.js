@@ -33,7 +33,7 @@ let secretWords = [
   "apple",
   "banana",
   "javascript",
-  "python",
+  "python", 
   "html",
   "css",
   "jinx",
