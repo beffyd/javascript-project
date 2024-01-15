@@ -2,7 +2,7 @@
 
 Beffys Hangman is designed to be a fun game to play as a single play or to guess with friends.
 
-![am-i-resposive](/)
+![am-i-resposive](/assets/imgs/amiresponsive.png)
 
 [It can be viewed here!](https://beffyd.github.io/javascript-project/)
 
@@ -142,14 +142,14 @@ Click Save. Your live Github Pages site is now deployed at the URL shown.
 ## How to Fork the Repository: 
 
 Log in (or sign up) to Github.
-Go to the repository for this project, beffyd.github.io/Milestone-Project/
+Go to the repository for this project, https://beffyd.github.io/javascript-project/
 Click the Fork button in the top right corner.
 How to Clone
 
 ## How to Clone the repository:
 
 Log in (or sign up) to GitHub.
-Go to the repository for this project, beffyd.github.io/Milestone-Project/
+Go to the repository for this project, https://beffyd.github.io/javascript-project
 Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
 Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
@@ -168,7 +168,7 @@ The facts about hangman on the landing page were found on google.
 
 * https://fontawesome.com/ for the question mark icon on the guess button 
 * https://fonts.google.com/ for the gradient font used across the site 
-*  https://www.shutterstock.com/ for the hangman image 
+* https://www.shutterstock.com/ for the hangman image 
 
 # Testing
 
@@ -176,11 +176,16 @@ The facts about hangman on the landing page were found on google.
 
 ## WC3 Code Validator
 
-All pages passed validation on the W3C website(s) 
+Validation on the W3C website(s) 
 https://validator.w3.org/ & https://jigsaw.w3.org/css-validator/
 
-* [Index]()
-* [Game]()
+* [Index](/assets/imgs/indexhtml-validation..png)
+* [Game](/assets/imgs/gamehtml-validation.png)
+* [Css](/assets/imgs/css-validation..png)
+
+JSHint javascript testing https://jshint.com/
+* [Javascript](/assets/imgs/javascript-validation..png)
+
 ## Manual Testing
 
 ### Testing User Stories
@@ -229,7 +234,6 @@ Guess a letter incorrectly | Guessed letter is added to guessed letters list, X 
 
 
 ## Solved Bugs
-
 
 
 ## Deployment bugs
