@@ -4,9 +4,9 @@
 <!--  Game of Hangman -->
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
   </style>
@@ -26,7 +26,7 @@
     </p>
 
     <!--  Displays the hang man image during game play   -->
-    <img id="hangedMan" src="assets/imgs/01.png" />
+    <img id="hangedMan" src="assets/imgs/01.png" alt="hangman">
 
     <!--  Displays the word to be guessed  -->
     <div id="word-display"></div>
@@ -39,7 +39,7 @@
     <!--  Guessed Letter Input Area   -->
     <div id="guess-box">
       <fieldset>
-        <input type="text" id="guess-input" placeholder="Enter a letter" />
+        <input type="text" id="guess-input" placeholder="Enter a letter">
         <button onclick="makeGuess()">
           <i class="fa-solid fa-question"></i>
         </button>

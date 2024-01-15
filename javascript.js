@@ -3,7 +3,7 @@
   Devloper  : Beth 
   Date      : January 2024
 
-  Purpose   : This is .....
+  Purpose   : This is a project to display the use of javascript by playing hanngman
 
 * / 
 
@@ -44,6 +44,8 @@ let secretWords = [
 let guessedLetters = [];
 let remainingGuesses = 10;
 let secretWord = "";
+let index
+let displayedWord
 
 /* Constant elements */
 const wordDisplay = document.getElementById("word-display");
